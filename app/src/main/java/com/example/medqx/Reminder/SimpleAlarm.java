@@ -161,7 +161,7 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
                 List<LocalDateTime> dateIntervals = getListOfDateIntervals(medTakeIndex, mHour, minute, selectedMedicalInterval);
                 int i = 0;
                 for (LocalDateTime dateInterval: dateIntervals) {
-                    int randomNumber = (int) Math.random() * 12031996;
+                    int randomNumber = 2 * (12031996 + i);
                     calendar.set(
                             dateInterval.getYear(),
                             dateInterval.getMonthValue() - 1,
@@ -172,26 +172,24 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
                     );
 
                     long alarmStartTime = calendar.getTimeInMillis();
-//
                     Intent intent = new Intent(SimpleAlarm.this, BroadcastReceiver.class);
-                    intent.putExtra("notificationId", randomNumber);
+                    intent.putExtra("notificationId", notificationId + randomNumber);
                     intent.putExtra("todo", etMed.getText().toString());
-//
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(this, randomNumber, intent, 0);
-//                    // set() schedules an alarm
+                    // set() schedules an alarm
                     alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, pendingIntent);
                     Log.i("PARSER", "calendar: : "+ calendar);
-                    Log.i("PARSER", "Date Milliseconds: : "+ alarmStartTime);
+                    Log.i("PARSER", "Date Milliseconds : "+ alarmStartTime);
+                    Log.i("PARSER", "Random Number : "+ randomNumber);
                     Toast.makeText(this, "success", Toast.LENGTH_LONG).show();
                     i ++;
                 }
                 break;
 
             case R.id.btnCancel:
-             //   alarmManager.cancel(pendingIntent);
+                //   alarmManager.cancel(pendingIntent);
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
                 break;
         }
-
     }
 }
