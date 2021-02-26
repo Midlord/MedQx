@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reminder.SimpleAlarm"
+    >
+
+
+
+    <LinearLayout
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/etMed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Medicine Name"
+            android:layout_marginBottom="20dp"/>
+
+
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner" />
+
+        <EditText
+            android:id="@+id/med_take"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Number of Medicine"
+            android:inputType="number"
+            />
+
+        <Spinner
+            android:id="@+id/sp_typeofMed"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"/>
+
+        <Spinner
+            android:id="@+id/sp_interval"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/btnSetAlarm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set Alarm"/>
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>
