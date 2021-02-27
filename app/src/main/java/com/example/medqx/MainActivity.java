@@ -1,5 +1,6 @@
 package com.example.medqx;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -8,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.medqx.Locator.MapsActivity;
-import com.example.medqx.Pharmacy.PharmacyLocator;
 import com.example.medqx.Reminder.SimpleAlarm;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -24,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
 
 

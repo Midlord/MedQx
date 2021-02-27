@@ -16,21 +16,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MedQx">
-        <activity android:name=".Reminder.Med_take"></activity>
-        <activity android:name=".Reminder.AddReminder" />
-        <activity android:name=".Pharmacy.PharmacyLocator" />
-        <activity android:name=".Login">
+        <activity android:name=".SplashMedQ">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".Reminder.Med_take" />
+        <activity android:name=".Login">
         </activity>
         <activity android:name=".Register" />
         <activity android:name=".MainActivity" />
         <activity
             android:name=".Locator.MapsActivity"
-            android:label="activity_maps"></activity>
+            android:label="activity_maps" />
         <activity android:name=".Reminder.SimpleAlarm" />
 
         <meta-data

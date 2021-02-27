@@ -4,24 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cut_card_bg"
-    tools:context=".Dashboard">
+    android:background="@drawable/wp"
+   >
 
 
-    <TextView
-        android:id="@+id/myDashboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="My Dashboard"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:layout_margin="12dp"
-        />
-
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="198dp"
+        android:layout_height="68dp"
+        android:paddingTop="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/signInLi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.258"
+        app:srcCompat="@drawable/li_med_with_text" />
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/myDashboard"
+        android:layout_below="@id/imageView"
         android:layout_marginTop="20dp"
         android:layout_margin="20dp"
         android:columnCount="2"
@@ -29,146 +31,130 @@
 
 
         <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:id="@+id/cardAlarm"
+            android:layout_width="33dp"
+            android:layout_height="36dp"
             android:layout_row="0"
+            android:layout_rowWeight="1"
             android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true"
-            android:id="@+id/cardAlarm">
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/wp">
+
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_width="133dp"
+                    android:layout_height="202dp"
+                    android:src="@drawable/db_set_alarm"
+                    ></ImageView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Alarm"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:id="@+id/cardLocator"
+            android:layout_width="23dp"
+            android:layout_height="9dp"
             android:layout_row="0"
+            android:layout_rowWeight="1"
             android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
-            android:id="@+id/cardLocator">
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
+                android:background="@drawable/wp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
+                    android:layout_width="133dp"
+                    android:layout_height="202dp"
+                    android:src="@drawable/db_pharm_locator"></ImageView>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Locator"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_row="1"
-            android:layout_column="0"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
             android:id="@+id/cardSettings"
-            >
+            android:layout_width="9dp"
+            android:layout_height="0dp"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/wp">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                   />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Settings"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:layout_width="133dp"
+                    android:layout_height="202dp"
+                    android:src="@drawable/db_settings"></ImageView>
 
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:id="@+id/cardLogout"
+            android:layout_width="51dp"
+            android:layout_height="8dp"
             android:layout_row="1"
+            android:layout_rowWeight="1"
             android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
             app:cardUseCompatPadding="true"
-            android:id="@+id/cardLogout"
+
             >
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|center_horizontal"
+                android:background="@drawable/wp"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                >
+
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Logout"
-                    android:textSize="16sp"
-                    android:textColor="@color/black"/>
+                    android:layout_width="133dp"
+                    android:layout_height="202dp"
+                    android:src="@drawable/db_logout"></ImageView>
 
             </LinearLayout>
 

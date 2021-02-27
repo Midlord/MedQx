@@ -150,6 +150,7 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
         TimePicker timePicker = findViewById(R.id.timePicker);
         EditText med_take = findViewById(R.id.med_take);
 
+
         int medTakeIndex = Integer.parseInt(med_take.getText().toString());
 
         AlarmManager alarmManager= (AlarmManager) getSystemService(ALARM_SERVICE);

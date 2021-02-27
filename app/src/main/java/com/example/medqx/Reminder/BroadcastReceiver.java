@@ -17,7 +17,7 @@ import com.example.medqx.R;
 
 import static android.app.Notification.EXTRA_NOTIFICATION_ID;
 
-public class BroadcastReceiver extends android.content.BroadcastReceiver {
+public class BroadcastReceiver extends android.content.BroadcastReceiver{
 
     private static final String CHANNEL_ID="SAMPLE CHANNEL";
 
@@ -64,5 +64,8 @@ public class BroadcastReceiver extends android.content.BroadcastReceiver {
                                snoozePendingIntent);
 
         myNotificationManager.notify(notificationId, builder.build());
+
     }
+
+
 }
