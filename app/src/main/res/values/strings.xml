@@ -13,4 +13,6 @@
         <item>Every 24 Hour/s</item>
 
     </string-array>
+
+    <string name="snooze">Snooze</string>
 </resources>

@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -19,6 +20,7 @@ import android.widget.Spinner;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.medqx.MainActivity;
 import com.example.medqx.R;
 
 import java.time.LocalDate;
@@ -104,6 +106,10 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
                 // test run
             }
 
+
+
+
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // no action
@@ -148,8 +154,16 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
 
         AlarmManager alarmManager= (AlarmManager) getSystemService(ALARM_SERVICE);
 
+
+
         switch (v.getId()){
             case R.id.btnSetAlarm:
+                    if(TextUtils.isEmpty(med_take.getText())){
+
+                        med_take.setError("Enter Number");
+                        med_take.requestFocus();
+
+                    }
                 int hour = timePicker.getCurrentHour();
                 int minute = timePicker.getCurrentMinute();
                 int mHour = 0;
@@ -187,8 +201,9 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
                 break;
 
             case R.id.btnCancel:
+
                 //   alarmManager.cancel(pendingIntent);
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Back", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

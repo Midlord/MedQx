@@ -31,11 +31,11 @@
 
         <EditText
             android:id="@+id/med_take"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Number of Medicine"
-            android:inputType="number"
-            />
+
+            android:inputType="number" />
 
         <Spinner
             android:id="@+id/sp_typeofMed"
