@@ -158,12 +158,6 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
 
         switch (v.getId()){
             case R.id.btnSetAlarm:
-                    if(TextUtils.isEmpty(med_take.getText())){
-
-                        med_take.setError("Enter Number");
-                        med_take.requestFocus();
-
-                    }
                 int hour = timePicker.getCurrentHour();
                 int minute = timePicker.getCurrentMinute();
                 int mHour = 0;
