@@ -52,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
         cardLogout.setOnClickListener(v -> {
             FirebaseAuth.getInstance().signOut();
-            startActivity(new Intent(getApplicationContext(), Login.class));
+            Intent dashboard_Intent = new Intent(this, Login.class);
+            dashboard_Intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(dashboard_Intent);
             finish();
 
         });
@@ -63,4 +65,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), Login.class));
         finish();
     }
+
+
 }

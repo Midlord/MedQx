@@ -1,5 +1,6 @@
 package com.example.medqx.Reminder;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlarmManager;
@@ -36,7 +37,7 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
 
     Spinner spInterval, spMedtype;
 
-    private int notificationId=1;
+    private int notificationId = 1;
 
     public int selectedMedicalInterval = 0;
 
@@ -44,11 +45,13 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_alarm);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 
         findViewById(R.id.btnSetAlarm).setOnClickListener(this);
         findViewById(R.id.btnCancel).setOnClickListener(this);
-        spInterval=findViewById(R.id.sp_interval);
-        spMedtype=findViewById(R.id.sp_typeofMed);
+        spInterval = findViewById(R.id.sp_interval);
+        spMedtype = findViewById(R.id.sp_typeofMed);
 
         ArrayList<MedicalInterval> medicalIntervalList = new ArrayList<MedicalInterval>();
         //add medical interval
@@ -107,9 +110,6 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
             }
 
 
-
-
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 // no action
@@ -125,7 +125,7 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
 //        spinner.setAdapter(adapter);
 //        spinner.setOnItemSelectedListener(this);
 
-        String[] MedType= {"Capsule/s", "Tablet/s", "Syrup/s"};
+        String[] MedType = {"Capsule/s", "Tablet/s", "Syrup/s"};
         spMedtype.setAdapter(new ArrayAdapter<>(SimpleAlarm.this, android.R.layout.simple_spinner_dropdown_item, MedType));
     }
 
@@ -153,11 +153,11 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
 
         int medTakeIndex = Integer.parseInt(med_take.getText().toString());
 
-        AlarmManager alarmManager= (AlarmManager) getSystemService(ALARM_SERVICE);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
 
-
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnSetAlarm:
                 int hour = timePicker.getCurrentHour();
                 int minute = timePicker.getCurrentMinute();
@@ -169,7 +169,7 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
 
                 List<LocalDateTime> dateIntervals = getListOfDateIntervals(medTakeIndex, mHour, minute, selectedMedicalInterval);
                 int i = 0;
-                for (LocalDateTime dateInterval: dateIntervals) {
+                for (LocalDateTime dateInterval : dateIntervals) {
                     int randomNumber = 2 * (12031996 + i);
                     calendar.set(
                             dateInterval.getYear(),
@@ -187,19 +187,33 @@ public class SimpleAlarm extends AppCompatActivity implements View.OnClickListen
                     PendingIntent pendingIntent = PendingIntent.getBroadcast(this, randomNumber, intent, 0);
                     // set() schedules an alarm
                     alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, pendingIntent);
-                    Log.i("PARSER", "calendar: : "+ calendar);
-                    Log.i("PARSER", "Date Milliseconds : "+ alarmStartTime);
-                    Log.i("PARSER", "Random Number : "+ randomNumber);
-                    Toast.makeText(this, "success", Toast.LENGTH_LONG).show();
-                    i ++;
+                    Log.i("PARSER", "calendar: : " + calendar);
+                    Log.i("PARSER", "Date Milliseconds : " + alarmStartTime);
+                    Log.i("PARSER", "Random Number : " + randomNumber);
+
+                    i++;
                 }
+
+                Toast.makeText(this, "Sucess", Toast.LENGTH_LONG).show();
                 break;
 
-            case R.id.btnCancel:
+            case R.id.btnCancel:{
+                int c=0;
+                int randomNumber = 2 * (12031996 + c);
+               Intent myIntent = new Intent(this, BroadcastReceiver.class);
+               myIntent.putExtra("notificationId", notificationId + randomNumber);
+               PendingIntent pendingIntent = PendingIntent.getBroadcast(this, randomNumber, myIntent,0);
+                alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+                alarmManager.cancel(pendingIntent);
+                }
+                Toast.makeText(this, "Alarm Stop", Toast.LENGTH_SHORT).show();
 
-                //   alarmManager.cancel(pendingIntent);
-                Toast.makeText(this, "Back", Toast.LENGTH_SHORT).show();
                 break;
-        }
+        }   }
+
+
+
+
     }
-}
+
+

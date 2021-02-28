@@ -48,20 +48,18 @@ public class BroadcastReceiver extends android.content.BroadcastReceiver{
        Intent snoozeIntent = new Intent(context, SimpleAlarm.class);
        snoozeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
        snoozeIntent.putExtra(EXTRA_NOTIFICATION_ID, notificationId + 9876);
-       PendingIntent snoozePendingIntent = PendingIntent.getBroadcast(context, notificationId + 9876, snoozeIntent, notificationId);
 
        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(android.R.drawable.ic_dialog_info)
                 .setContentTitle("Time To Take Your Medicine!!")
                 .setContentText(msg)
                 .setWhen(System.currentTimeMillis())
-                .setAutoCancel(true)
                 .setContentIntent(contentIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                .addAction(R.drawable.notification_snooze, "Take",
                        contentIntent)
-                       .addAction(R.drawable.notification_snooze, "Snooze",
-                               snoozePendingIntent);
+               .setAutoCancel(true);
+
 
         myNotificationManager.notify(notificationId, builder.build());
 
